@@ -469,6 +469,10 @@ footer {
   .projects_me {
     height: 480px;
   }
+
+  .about_me .text {
+    text-align: center;
+  }
 }
 
 
