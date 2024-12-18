@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio Website</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-briefcase"></i> Portfolio.
+                <span class="small-text">Data Entry Specialist</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="hero">
+                <div class="text">
+                    <h1>I analyze data <br />to drive insights <br />and decisions</h1>
+                    <p>
+                        Hi! I'm Jomar from the Philippines, and I have a passion <br />
+                        for managing data efficiently and delivering accurate results.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about_me">
+                <div class="image"></div> <!-- This will hold your image -->
+                <div class="text">
+                    <h1>About Me</h1>
+                    <p>I’m a detail-oriented data analyst and administrative assistant with a strong background in data entry, management, and automation. With years of experience working remotely, I’ve honed my skills in Excel, Google Sheets, and other related tools, making me highly efficient in handling large datasets and streamlining workflows. My expertise lies in improving operational processes by leveraging data-driven insights and optimizing tasks through automation.<br><br>
+                        I’m passionate about finding creative solutions to complex problems, and I thrive in dynamic, fast-paced environments. My goal is to consistently deliver accurate, insightful reports and help businesses make informed decisions. Currently, I work flexible night shifts, balancing multiple projects while ensuring a smooth and productive workday for clients.</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="services">
+            <div class="services_me">
+                <div class="image"></div> <!-- This will hold your image -->
+                <div class="text">
+                    <h1>Services</h1>
+                    <p>Details about your experience and skills.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="projects_me">
+                <div class="image"></div> <!-- This will hold your image -->
+                <div class="text">
+                    <h1>Projects</h1>
+                    <p>Details about your projects.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <!-- Footer Content -->
+        <div class="footer-content">
+            <!-- Left Section - Contacts and Social Icons -->
+            <div id="contact" class="footer-left">
+                <h2>Contacts</h2>
+                <p><i class="fas fa-paper-plane"></i>jomarpajenago@gmail.com</p>
+                <p><i class="fas fa-phone-square-alt"></i>+639567092024</p>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Right Section - Contact Me -->
+            <div class="footer-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <input type="text" name="Subject" placeholder="Subject" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span> <!-- Message display area -->
+            </div>
+            
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

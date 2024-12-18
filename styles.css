@@ -1,0 +1,656 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --light-text-color: #777;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Enable smooth scrolling */
+  scroll-padding-top: 120px;
+  /* Offset the scroll by the height of your header */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  /* Logo color */
+  display: flex;
+  align-items: center;
+}
+
+.logo i {
+  margin-right: 1rem;
+}
+
+.logo .small-text {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: var(--primary-color);
+  margin-left: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--primary-color);
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+main {
+  margin-top: 80px;
+  padding: 2rem 5%;
+}
+
+/* Sections */
+.hero,
+.about_me,
+.services_me,
+.projects_me {
+  display: flex;
+  justify-content: space-between;
+  /* Align text left and image right */
+  align-items: center;
+  padding: 4rem 5%;
+  background-image: url("/placeholder.svg?height=400&width=1200");
+  background-size: cover;
+  background-position: center;
+  color: var(--primary-color);
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 5%;
+  height: 720px;
+  background-color: #ffffff !important;
+}
+
+/* Profile-hero */
+
+.hero .text {
+  flex: 1;
+  text-align: left;
+  /* Align text to the left */
+  z-index: 1;
+}
+
+.hero .text h1 {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 2%;
+}
+
+.hero .text h2 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.hero .text p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.hero .image {
+  flex: 1;
+  max-width: 50%;
+  height: 100%;
+  background-image: url("/your-image-url.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  z-index: -1;
+}
+
+.hero .text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: -1;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+
+
+
+
+/* About */
+.about_me .image {
+  flex: 1; /* Allow the image to take up one part of the space */
+  max-width: 50%; /* Limit image width */
+  height: 100%; /* Set height to 100% of the container */
+  background-image: url("/your-image-url.jpg"); /* Your image URL */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  border-radius: 15px;
+  z-index: -1; /* Place image behind the text */
+}
+
+.about_me .text {
+  flex: 1; /* Allow text to take up one part of the space */
+  text-align: left; /* Align text to the left */
+  z-index: 1; /* Bring text above the background */
+  padding-left: 2rem; /* Optional: Add spacing between image and text */
+}
+
+.about_me .text h2 {
+  font-size: 2rem;
+  color: #333; /* Dark color for contrast */
+}
+
+.about_me .text p {
+  font-size: 1.2rem;
+  color: #333; /* Keep the paragraph text color dark */
+}
+
+.about_me .text h1 {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 2%;
+}
+
+.about_me .text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1); /* Overlay effect for text readability */
+  z-index: -1; /* Ensure overlay is behind text */
+}
+
+/* Optional additional styling for better visual separation */
+.about_me .image {
+  margin-right: 2rem; /* Optional: Add space between the image and text */
+}
+
+
+
+
+/* Services */
+.services_me .image {
+  flex: 1; /* Allow the image to take up one part of the space */
+  max-width: 50%; /* Limit image width */
+  height: 100%; /* Set height to 100% of the container */
+  background-image: url("/your-image-url.jpg"); /* Your image URL */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  border-radius: 15px;
+  z-index: -1; /* Place image behind the text */
+}
+
+.services_me .text {
+  flex: 1; /* Allow text to take up one part of the space */
+  text-align: left; /* Align text to the left */
+  z-index: 1; /* Bring text above the background */
+  padding-left: 2rem; /* Optional: Add spacing between image and text */
+}
+
+.services_me .text h2 {
+  font-size: 2rem;
+  color: #333; /* Dark color for contrast */
+}
+
+.services_me .text p {
+  font-size: 1.2rem;
+  color: #333; /* Keep the paragraph text color dark */
+}
+
+.services_me .text h1 {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 2%;
+}
+
+.services_me .text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1); /* Overlay effect for text readability */
+  z-index: -1; /* Ensure overlay is behind text */
+}
+
+/* Optional additional styling for better visual separation */
+.about_me .image {
+  margin-right: 2rem; /* Optional: Add space between the image and text */
+}
+
+
+/* Projects */
+.projects_me .image {
+  flex: 1; /* Allow the image to take up one part of the space */
+  max-width: 50%; /* Limit image width */
+  height: 100%; /* Set height to 100% of the container */
+  background-image: url("/your-image-url.jpg"); /* Your image URL */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  border-radius: 15px;
+  z-index: -1; /* Place image behind the text */
+}
+
+.projects_me .text {
+  flex: 1; /* Allow text to take up one part of the space */
+  text-align: left; /* Align text to the left */
+  z-index: 1; /* Bring text above the background */
+  padding-left: 2rem; /* Optional: Add spacing between image and text */
+}
+
+.projects_me .text h2 {
+  font-size: 2rem;
+  color: #333; /* Dark color for contrast */
+}
+
+.projects_me .text p {
+  font-size: 1.2rem;
+  color: #333; /* Keep the paragraph text color dark */
+}
+
+.projects_me .text h1 {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 2%;
+}
+
+.projects_me .text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1); /* Overlay effect for text readability */
+  z-index: -1; /* Ensure overlay is behind text */
+}
+
+/* Optional additional styling for better visual separation */
+.projects_me .image {
+  margin-right: 2rem; /* Optional: Add space between the image and text */
+}
+
+
+
+/* Footer General Styling */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 5rem 5% 1rem;
+  font-size: 1rem;
+}
+
+/* Footer Grid Layout */
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Two equal sections: Left and Right */
+  gap: 2rem;
+  align-items: start;
+}
+
+.footer-left,
+.footer-right {
+  padding: 1rem;
+}
+
+/* Left Section - Contacts and Social Icons */
+.footer-left h2 {
+  margin-bottom: 1rem;
+  color: var(--secondary-color, #00aced);
+  text-align: left;
+}
+
+.footer-left p {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.footer-left p i {
+  margin-bottom: 0.1rem;
+  margin-right: 15px;
+}
+
+.footer-left ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.footer-left ul li a:hover {
+  color: var(--secondary-color, #00aced);
+}
+
+/* Social Icons in Footer Left */
+.footer-left .social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-left .social-icons a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-left .social-icons a:hover {
+  color: var(--secondary-color, #00aced);
+}
+
+/* Right Section - Contact Form */
+.footer-right h3 {
+  margin-bottom: 1rem;
+  color: var(--secondary-color, #00aced);
+}
+
+.footer-right input,
+.footer-right textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.8rem;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer-right textarea {
+  resize: none;
+}
+
+.footer-right button {
+  background-color: var(--primary-color, #2980b9);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-right button:hover {
+  background-color: #1c6fa3;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #555;
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+
+@media screen and (max-width: 1440px) {
+
+}
+
+
+@media screen and (max-width: 1366px) {
+  .hero,
+  .about_me,
+  .services_me,
+  .projects_me {
+    height: 480px;
+  }
+}
+
+
+/* For smaller screen sizes (mobile) */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-active {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateX(50px);
+    animation: navLinkFade 0.05s forwards;
+  }
+
+  .nav-links li:nth-child(1) {
+    animation-delay: 0.01s;
+  }
+
+  .nav-links li:nth-child(2) {
+    animation-delay: 0.02s;
+  }
+
+  .nav-links li:nth-child(3) {
+    animation-delay: 0.03s;
+  }
+
+  .burger div {
+    background-color: var(--text-color);
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .burger.toggle div:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 5px;
+  }
+
+  .burger.toggle div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.toggle div:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -5px;
+  }
+
+
+
+  .hero,
+  .about_me,
+  .services_me {
+    flex-direction: column;
+    /* Stack content on smaller screens */
+    height: auto;
+  }
+
+  .hero .image {
+    max-width: 100%;
+    height: 300px;
+  }
+
+  .hero .text {
+    padding-left: 0; /* Remove left padding */
+    text-align: center; /* Center text on smaller screens */
+  }
+
+  .hero .text h1 {
+    font-size: 2rem; /* Reduce heading size */
+  }
+
+  .hero .text h2 {
+    font-size: 1.5rem; /* Reduce subheading size */
+  }
+
+  .hero .text p {
+    font-size: 1rem; /* Reduce paragraph text size */
+  }
+
+
+  .about_me,
+  .services_me,
+  .projects_me {
+    flex-direction: column; /* Stack content vertically */
+    height: auto; /* Allow height to adjust based on content */
+    padding: 2rem 5%; /* Adjust padding for smaller screens */
+  }
+
+  .about_me .image,
+  .services_me .image,
+  .projects_me .image {
+    max-width: 100%; /* Make images responsive */
+    height: 250px; /* Set a specific height for images */
+    margin-bottom: 2rem; /* Add space below images */
+  }
+
+  .about_me .text,
+  .services_me .text,
+  .projects_me .text {
+    padding-left: 0; /* Remove left padding */
+    text-align: center; /* Center text on smaller screens */
+  }
+
+  .about_me .text h1,
+  .services_me .text h1,
+  .projects_me .text h1 {
+    font-size: 2rem; /* Reduce heading size */
+  }
+
+  .about_me .text h2,
+  .services_me .text h2,
+  .projects_me .text h2 {
+    font-size: 1.5rem; /* Reduce subheading size */
+  }
+
+  .about_me .text p,
+  .services_me .text p,
+  .projects_me .text p {
+    font-size: 1rem; /* Reduce paragraph text size */
+  }
+
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    /* Stack sections vertically */
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    margin-bottom: 2rem;
+  }
+
+  .footer-right form input,
+  .footer-right form textarea {
+    text-align: left;
+    /* Center text in inputs for smaller screens */
+  }
+
+  .footer-left h2 {
+    text-align: center;
+    /* Center alignment for smaller screens */
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
