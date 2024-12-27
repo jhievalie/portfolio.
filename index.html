@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal Portfolio Website</title>
+    <title>Portfolio.</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,18 +55,98 @@
             </div>
         </section>
 
-        <section id="about">
+        <!-- <section id="about">
             <div class="about_me">
-                <div class="image"></div> <!-- This will hold your image -->
+                <div class="image"></div>
                 <div class="text">
                     <h1>About Me</h1>
                     <p>I’m a detail-oriented data analyst and administrative assistant with a strong background in data entry, management, and automation. With years of experience working remotely, I’ve honed my skills in Excel, Google Sheets, and other related tools, making me highly efficient in handling large datasets and streamlining workflows. My expertise lies in improving operational processes by leveraging data-driven insights and optimizing tasks through automation.<br><br>
                         I’m passionate about finding creative solutions to complex problems, and I thrive in dynamic, fast-paced environments. My goal is to consistently deliver accurate, insightful reports and help businesses make informed decisions. Currently, I work flexible night shifts, balancing multiple projects while ensuring a smooth and productive workday for clients.</p>
                 </div>
             </div>
-        </section>
-        
+        </section> -->
 
+        <section id="about">
+            <div class="container">
+                <div class="row about_me">
+                    <div class="about-col-1 image">
+                        <!-- Ensure the image path is correct -->
+                        <!-- <img src="" alt="Profile Image"> -->
+                    </div>
+                    <div class="about-col-2 text">
+                        <div class="tab-titles">
+                            <p class="tab-links active-link" onclick="opentab('about-me')">About Me</p>
+                            <p class="tab-links" onclick="opentab('skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                            <p class="tab-links" onclick="opentab('tools')">Tools</p>
+                        </div>
+        
+                        <div class="tab-contents active-tab" id="about-me">
+                            <p>
+                                I’m a detail-oriented data analyst and administrative assistant with a strong background in data entry, management, and automation. With years of experience working remotely, I’ve honed my skills in Excel, Google Sheets, and other related tools, making me highly efficient in handling large datasets and streamlining workflows. My expertise lies in improving operational processes by leveraging data-driven insights and optimizing tasks through automation.
+                                <br><br>
+                                I’m passionate about finding creative solutions to complex problems, and I thrive in dynamic, fast-paced environments. My goal is to consistently deliver accurate, insightful reports and help businesses make informed decisions. Currently, I work flexible night shifts, balancing multiple projects while ensuring a smooth and productive workday for clients.
+                            </p>
+                        </div>
+        
+                        <div class="tab-contents" id="skills">
+                            <p>
+                                <span>Google Sheets & MS Excel:</span> Data Analysis, Entry, Validation, and Normalization <br><br>
+                                <span>SQL:</span> Experience in creating queries and managing databases <br><br>
+                                <span>Shopify & Looker Studio:</span> Proficient in eCommerce platforms and data visualization <br><br>
+                                <span>Google Analytics & Ads Managers:</span> Analyzing web traffic and optimizing online ads <br><br>
+                                <span>Amazon & Power BI:</span> Building reports and dashboards for business insights
+                            </p>
+                        </div>
+        
+                        <div class="tab-contents" id="experience">
+                            <p>
+                                <span>Part-time Project Data Analyst:</span> Automated data analysis tasks, improved accuracy, and developed performance dashboards. <br><br>
+                                <span>Administrative Assistant:</span> Developed reports, trained new employees, and improved administrative processes for the City Government of Antipolo. <br><br>
+                                <span>Revenue Collection Clerk:</span> Handled cash transactions and provided customer support for the City Government of Antipolo.
+                            </p>
+                        </div>
+        
+                        <div class="tab-contents" id="tools">
+                            <div class="tool-row">
+                                <div class="tool-item">
+                                    <img src="images/excel.png" alt="MS Excel Icon">
+                                </div>
+                                <div class="tool-item">
+                                    <img src="images/google-sheets.png" alt="Google Sheets Icon">
+                                </div>
+                            </div>
+                            <div class="tool-row">
+                                <div class="tool-item">
+                                    <img src="images/looker.png" alt="Looker Studio Icon">
+                                </div>
+                                <div class="tool-item">
+                                    <img src="images/tableau.png" alt="Tableau Icon">
+                                </div>
+                            </div>
+                            <div class="tool-row">
+                                <div class="tool-item">
+                                    <img src="images/shopify.png" alt="Shopify Icon">
+                                </div>
+                                <div class="tool-item">
+                                    <img src="images/amazon.png" alt="Amazon Icon">
+                                </div>
+                            </div>
+                            <div class="tool-row">
+                                <div class="tool-item">
+                                    <img src="images/google-analytics.png" alt="Google Analytics Icon">
+                                </div>
+                                <div class="tool-item">
+                                    <img src="images/sql.png" alt="SQL Icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>        
+            
+        
         <section id="services">
             <div class="services_me">
                 <div class="image"></div> <!-- This will hold your image -->
@@ -95,10 +179,10 @@
                 <p><i class="fas fa-phone-square-alt"></i>+639567092024</p>
 
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/jomarp21" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.twitter.com/vampot" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/jhiepajenago/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/jomarpajenago21" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
 
