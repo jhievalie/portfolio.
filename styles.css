@@ -17,7 +17,7 @@
 html {
   scroll-behavior: smooth;
   /* Enable smooth scrolling */
-  scroll-padding-top: 120px;
+  scroll-padding-top: 115px;
   /* Offset the scroll by the height of your header */
 }
 
@@ -104,15 +104,13 @@ main {
 }
 
 /* Sections */
-.hero,
-.about_me,
-.services_me,
-.projects_me {
+.hero {
   display: flex;
   justify-content: space-between;
   /* Align text left and image right */
   align-items: center;
   padding: 4rem 5%;
+  background-color: #ffffff !important;
   background-image: url("/placeholder.svg?height=400&width=1200");
   background-size: cover;
   background-position: center;
@@ -120,10 +118,10 @@ main {
   position: relative;
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 5%;
-  height: 720px;
-  background-color: #ffffff !important;
+  margin-bottom: 10%;
+  height: 760px;
 }
+
 
 /* Profile-hero */
 
@@ -181,35 +179,30 @@ h2 {
 
 
 
-
-
 /* About */
-.about_me .image {
-  flex: 1; /* Allow the image to take up one part of the space */
-  max-width: 50%; /* Limit image width */
-  height: 100%; /* Set height to 100% of the container */
-  background-image: url("/your-image-url.jpg"); /* Your image URL */
-  background-size: cover; /* Cover the entire area */
-  background-position: center; /* Center the image */
+#about {
+  /* padding: 80px 0; */
+  padding: 4rem 5%;
+  color: #ababab;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff !important;
+  background-image: url("/placeholder.svg?height=400&width=1200");
+  background-size: cover;
+  background-position: center;
+  color: var(--primary-color);
+  position: relative;
   border-radius: 15px;
-  z-index: -1; /* Place image behind the text */
+  overflow: hidden;
+  margin-bottom: 5%;
+  height: 760px;
 }
 
 .about_me .text {
-  flex: 1; /* Allow text to take up one part of the space */
-  text-align: left; /* Align text to the left */
-  z-index: 1; /* Bring text above the background */
-  padding-left: 2rem; /* Optional: Add spacing between image and text */
-}
-
-.about_me .text h2 {
-  font-size: 2rem;
-  color: #333; /* Dark color for contrast */
-}
-
-.about_me .text p {
-  font-size: 1.2rem;
-  color: #333; /* Keep the paragraph text color dark */
+  flex: 1;
+  text-align: left;
+  /* Align text to the left */
+  z-index: 1;
 }
 
 .about_me .text h1 {
@@ -218,60 +211,191 @@ h2 {
   margin-bottom: 2%;
 }
 
-.about_me .text::before {
-  content: "";
+.about_me .text h2 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.about_me .text p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.about-col-1 {
+  flex-basis: 40%; /* 35% of the container width */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+.about-col-1 img {
+  width: 100%; /* Scale image to fit column width */
+  max-width: 300px; /* Optional max width for the image */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+}
+
+.about-col-2 {
+  flex-basis: 60%; /* 60% of the container width */
+  padding-left: 2rem; /* Add spacing between the image and the text */
+}
+
+.sub-title {
+  font-size: 60px;
+  font-weight: 400;
+}
+
+.tab-titles {
+  display: flex;
+  margin: 20px 0 40px;
+}
+
+.tab-links {
+  margin-right: 50px;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  position: relative;
+  color: #333; /* Text color */
+  transition: color 0.3s ease;
+}
+
+.tab-links:hover {
+  color: rgb(89, 171, 198); /* Change color on hover */
+}
+
+.tab-links::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: rgb(89, 171, 198);
   position: absolute;
-  top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.1); /* Overlay effect for text readability */
-  z-index: -1; /* Ensure overlay is behind text */
+  bottom: -8px;
+  transition: width 0.5s ease;
 }
 
-/* Optional additional styling for better visual separation */
-.about_me .image {
-  margin-right: 2rem; /* Optional: Add space between the image and text */
+.tab-links.active-link {
+  color: rgb(89, 171, 198); /* Active link color */
 }
 
+.tab-links.active-link::after {
+  width: 100%; /* Full underline for active link */
+}
+
+.tab-contents ul li {
+  list-style: none;
+  margin: 10px 0;
+  font-size: 16px; /* Slightly larger font size for readability */
+}
+
+.tab-contents ul li span {
+  color: rgb(89, 171, 198); /* Highlight span text */
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.tab-contents {
+  display: none; /* Hide tabs by default */
+}
+
+.tab-contents.active-tab {
+  display: block; /* Display active tab content */
+}
+
+.tab-contents ul li span,
+.tab-contents p span {
+  color: var(--primary-color); /* Use the primary color variable */
+  font-weight: bold; /* Make text bold */
+  font-size: 20px; /* Adjust font size */
+}
+
+.tool-row {
+  display: flex;
+  justify-content: left; /* Center the row of icons */
+  margin-bottom: 20px; /* Space between rows */
+}
+
+.tool-item {
+  flex: 1; /* Make items flexible to fit in a row */
+  text-align: center; /* Center-align icons */
+  max-width: 100px; /* Optional: set a max width for the icons */
+  margin: 0 10px; /* Add some margin between icons */
+}
+
+.tool-item img {
+  width: 100%; /* Ensure images are responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: rounded corners for icons */
+}
+
+/* Ensure all tab contents are hidden by default */
+.tab-contents {
+  display: none; /* Hide all tab contents */
+}
+
+.tab-contents.active-tab {
+  display: block; /* Show active tab content */
+}
 
 
 
 /* Services */
-.services_me .image {
-  flex: 1; /* Allow the image to take up one part of the space */
-  max-width: 50%; /* Limit image width */
-  height: 100%; /* Set height to 100% of the container */
-  background-image: url("/your-image-url.jpg"); /* Your image URL */
-  background-size: cover; /* Cover the entire area */
-  background-position: center; /* Center the image */
+.services_me {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 5%;
+  margin-bottom: 5%;
   border-radius: 15px;
-  z-index: -1; /* Place image behind the text */
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  height: 760px;
+}
+
+.services_me .image {
+  flex: 1;
+  max-width: 50%;
+  height: 100%;
+  background-image: url("/your-image-url.jpg"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
 }
 
 .services_me .text {
-  flex: 1; /* Allow text to take up one part of the space */
-  text-align: left; /* Align text to the left */
-  z-index: 1; /* Bring text above the background */
-  padding-left: 2rem; /* Optional: Add spacing between image and text */
-}
-
-.services_me .text h2 {
-  font-size: 2rem;
-  color: #333; /* Dark color for contrast */
-}
-
-.services_me .text p {
-  font-size: 1.2rem;
-  color: #333; /* Keep the paragraph text color dark */
+  flex: 1;
+  padding-left: 2rem;
+  text-align: left;
 }
 
 .services_me .text h1 {
   font-size: 3rem;
-  line-height: 1;
-  margin-bottom: 2%;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
+.services_me .text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);  height: 760px;
+}
+
+.services_me .text p {
+  font-size: 1.2rem;
+  color: var(--light-text-color);
+  line-height: 1.8;
+}
+
+/* Overlay Effect for Text Readability */
 .services_me .text::before {
   content: "";
   position: absolute;
@@ -279,51 +403,62 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.1); /* Overlay effect for text readability */
-  z-index: -1; /* Ensure overlay is behind text */
+  background-color: rgba(0, 0, 0, 0.05); /* Light overlay */
+  z-index: -1;
 }
 
-/* Optional additional styling for better visual separation */
-.about_me .image {
-  margin-right: 2rem; /* Optional: Add space between the image and text */
-}
 
 
 /* Projects */
-.projects_me .image {
-  flex: 1; /* Allow the image to take up one part of the space */
-  max-width: 50%; /* Limit image width */
-  height: 100%; /* Set height to 100% of the container */
-  background-image: url("/your-image-url.jpg"); /* Your image URL */
-  background-size: cover; /* Cover the entire area */
-  background-position: center; /* Center the image */
+.projects_me {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 5%;
+  margin-bottom: 5%;
   border-radius: 15px;
-  z-index: -1; /* Place image behind the text */
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  height: 760px;
+}
+
+.projects_me .image {
+  flex: 1;
+  max-width: 50%;
+  height: 100%;
+  background-image: url("/your-image-url.jpg"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
 }
 
 .projects_me .text {
-  flex: 1; /* Allow text to take up one part of the space */
-  text-align: left; /* Align text to the left */
-  z-index: 1; /* Bring text above the background */
-  padding-left: 2rem; /* Optional: Add spacing between image and text */
-}
-
-.projects_me .text h2 {
-  font-size: 2rem;
-  color: #333; /* Dark color for contrast */
-}
-
-.projects_me .text p {
-  font-size: 1.2rem;
-  color: #333; /* Keep the paragraph text color dark */
+  flex: 1;
+  padding-left: 2rem;
+  text-align: left;
 }
 
 .projects_me .text h1 {
   font-size: 3rem;
-  line-height: 1;
-  margin-bottom: 2%;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
+.projects_me .text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.projects_me .text p {
+  font-size: 1.2rem;
+  color: var(--light-text-color);
+  line-height: 1.8;
+}
+
+/* Overlay Effect for Text Readability */
 .projects_me .text::before {
   content: "";
   position: absolute;
@@ -331,8 +466,8 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.1); /* Overlay effect for text readability */
-  z-index: -1; /* Ensure overlay is behind text */
+  background-color: rgba(0, 0, 0, 0.05); /* Light overlay */
+  z-index: -1;
 }
 
 /* Optional additional styling for better visual separation */
@@ -463,15 +598,14 @@ footer {
 
 
 @media screen and (max-width: 1366px) {
-  .hero,
-  .about_me,
-  .services_me,
-  .projects_me {
-    height: 480px;
-  }
 
-  .about_me .text {
-    text-align: center;
+}
+
+@media screen and (max-width: 1100px) {
+  #about {
+    padding: 1.5rem 5% 5rem; /* Add padding to all sides, with extra at the bottom */
+    margin-bottom: 5%; /* Maintain the margin for spacing */
+    height: auto; /* Ensure the height adjusts based on content */
   }
 }
 
@@ -547,7 +681,6 @@ footer {
 
 
   .hero,
-  .about_me,
   .services_me {
     flex-direction: column;
     /* Stack content on smaller screens */
@@ -577,7 +710,62 @@ footer {
   }
 
 
-  .about_me,
+  #about {
+    padding: 1.5rem 5% 5rem; /* Add padding to all sides, with extra at the bottom */
+    margin-bottom: 5%; /* Maintain the margin for spacing */
+    height: auto; /* Ensure the height adjusts based on content */
+  }
+  
+
+  .row {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align items */
+  }
+
+  .about-col-1,
+  .about-col-2 {
+    flex-basis: 100%; /* Each column takes full width */
+    text-align: center; /* Center-align text */
+    padding: 1rem 0; /* Add vertical padding */
+  }
+
+  .about-col-1 img {
+    max-width: 150px; /* Make the image smaller for mobile */
+    margin-bottom: 1rem; /* Add space below the image */
+  }
+
+  .about_me .text h1 {
+    font-size: 1.5rem; /* Smaller heading for mobile */
+    line-height: 1.3; /* Adjust line height */
+  }
+
+  .about_me .text p {
+    font-size: 0.9rem; /* Reduce paragraph font size */
+    line-height: 1.5; /* Maintain readability */
+  }
+
+  .tab-titles {
+    flex-wrap: wrap; /* Wrap tab titles for smaller screens */
+    justify-content: center; /* Center-align tab titles */
+    margin-bottom: 1rem; /* Add spacing below tab titles */
+  }
+
+  .tab-links {
+    margin-right: 15px; /* Reduce spacing between tabs */
+    font-size: 0.9rem; /* Smaller font size for tabs */
+  }
+
+  .tool-row {
+    flex-wrap: wrap; /* Allow wrapping for tool icons */
+    justify-content: center; /* Center-align tools */
+  }
+
+  .tool-item {
+    max-width: 60px; /* Make tool icons smaller for mobile */
+    margin: 5px; /* Reduce spacing between tools */
+  }
+
+
   .services_me,
   .projects_me {
     flex-direction: column; /* Stack content vertically */
@@ -585,7 +773,6 @@ footer {
     padding: 2rem 5%; /* Adjust padding for smaller screens */
   }
 
-  .about_me .image,
   .services_me .image,
   .projects_me .image {
     max-width: 100%; /* Make images responsive */
@@ -593,26 +780,22 @@ footer {
     margin-bottom: 2rem; /* Add space below images */
   }
 
-  .about_me .text,
   .services_me .text,
   .projects_me .text {
     padding-left: 0; /* Remove left padding */
     text-align: center; /* Center text on smaller screens */
   }
 
-  .about_me .text h1,
   .services_me .text h1,
   .projects_me .text h1 {
     font-size: 2rem; /* Reduce heading size */
   }
 
-  .about_me .text h2,
   .services_me .text h2,
   .projects_me .text h2 {
     font-size: 1.5rem; /* Reduce subheading size */
   }
 
-  .about_me .text p,
   .services_me .text p,
   .projects_me .text p {
     font-size: 1rem; /* Reduce paragraph text size */
@@ -656,5 +839,17 @@ footer {
       opacity: 1;
       transform: translateX(0);
     }
+  }
+}
+
+/* About - Animations */ 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
