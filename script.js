@@ -46,6 +46,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+function opentab(tabname) {
+    let tabLinks = document.querySelectorAll('.tab-links');
+    let tabContents = document.querySelectorAll('.tab-contents');
+
+    // Hide all tab contents
+    tabContents.forEach(content => {
+        content.classList.remove('active-tab');
+        content.style.display = 'none'; // Ensure all are hidden
+    });
+
+    // Remove active class from all tab links
+    tabLinks.forEach(link => link.classList.remove('active-link'));
+
+    // Add active class to the clicked tab link
+    event.currentTarget.classList.add('active-link');
+
+    // Show the selected tab content
+    const activeTab = document.getElementById(tabname);
+    if (activeTab) {
+        activeTab.classList.add('active-tab');
+        activeTab.style.display = 'block'; // Show the active tab
+    }
+}
+
+
+
+
+
 // New message sent to GSheet
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyyupltVOE2-LXyg_mQdPHm3uSeqwn4aTl9E3JRbJuFQwc9WjOiQyWTjgKcT0JjBq_5/exec';
 const form = document.forms['submit-to-google-sheet'];
