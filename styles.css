@@ -214,13 +214,10 @@ h2 {
 }
 
 
-
 /* About */
 #about {
   padding: 4rem 5%;
   color: #ababab;
-  justify-content: space-between;
-  align-items: center;
   background-color: #ffffff !important;
   background-image: url("/placeholder.svg?height=400&width=1200");
   background-size: cover;
@@ -231,73 +228,44 @@ h2 {
   overflow: hidden;
   margin-top: 5%;
   margin-bottom: 8%;
-  height: 760px;
+  height: 760px; /* Set fixed height */
 }
 
-.about_me .text {
-  flex: 1;
+.about_me {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: left;
-  z-index: 1;
+  height: 100%; /* Ensure the content fills the section height */
+  display: flex;
+  flex-direction: column;
 }
 
-.about_me .text h1 {
+.about_me h1 {
   font-size: 3rem;
   line-height: 1;
   margin-bottom: 2%;
 }
 
-.about_me .text h2 {
+.about_me h2 {
   font-size: 2rem;
   color: #fff;
 }
 
-.about_me .text p {
+.about_me p {
   font-size: 1.2rem;
   color: #333;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.about-col-1 {
-  flex-basis: 40%; /* 50% of the container width */
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
-  min-height: 400px; /* Set a fixed minimum height for the column */
-  height: 400px; /* Fixed height for the column */
-}
-
-.about-col-1 img {
-  width: auto; /* Keep the image width automatic */
-  height: 100%; /* Ensure the image takes full height of the column */
-  border-radius: 15px; /* Rounded corners */
-  margin-top: 20%;
-  margin-right: 5%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
-}
-
-.about-col-2 {
-  flex-basis: 60%; /* 50% of the container width */
-  padding-left: 2rem; /* Add spacing between the image and the text */
-  display: flex; /* Use flexbox for better alignment */
-  flex-direction: column; /* Stack items vertically */
-  height: 100%; /* Allow the second column to grow with content */
-}
-
-.sub-title {
-  font-size: 60px;
-  font-weight: 400;
+.about_me span {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .tab-titles {
   display: flex;
   margin: 20px 0 40px;
   justify-content: center;
-  position: relative; /* Ensure positioning context for the pseudo-element */
+  position: relative;
 }
 
 .tab-titles::after {
@@ -314,62 +282,27 @@ h2 {
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-  position: relative;
-  color: #333; /* Text color */
+  color: #333;
   transition: color 0.3s ease;
 }
 
 .tab-links:hover {
-  color: rgb(89, 171, 198); /* Change color on hover */
-}
-
-.tab-links::after {
-  content: '';
-  width: 0;
-  height: 3px;
-  background: rgb(89, 171, 198);
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  transition: width 0.5s ease;
+  color: rgb(89, 171, 198);
 }
 
 .tab-links.active-link {
-  color: rgb(89, 171, 198); /* Active link color */
+  color: rgb(89, 171, 198);
   font-weight: 600;
 }
 
-.tab-links.active-link::after {
-  width: 100%; /* Full underline for active link */
-}
-
-.tab-contents ul li {
-  list-style: none;
-  margin: 10px 0;
-  font-size: 16px; /* Slightly larger font size for readability */
-}
-
-.tab-contents ul li span {
-  color: rgb(89, 171, 198); /* Highlight span text */
-  font-size: 16px;
-  font-weight: bold;
-}
-
 .tab-contents {
-  display: none; /* Hide tabs by default */
-  /* Ensure a fixed height for tab content */
-  min-height: 300px; /* Adjust as needed */
+  display: none;
+  min-height: 300px;
+  margin-top: 5%;
 }
 
 .tab-contents.active-tab {
-  display: block; /* Display active tab content */
-}
-
-.tab-contents ul li span,
-.tab-contents p span {
-  color: var(--primary-color); /* Use the primary color variable */
-  font-weight: bold; /* Make text bold */
-  font-size: 20px; /* Adjust font size */
+  display: block;
 }
 
 .tool-row {
@@ -377,8 +310,7 @@ h2 {
   justify-content: center; /* Center the items horizontally */
   margin-bottom: 7%;
   position: relative;
-  height: 120px; /* Default height for first row */
-  flex-wrap: wrap; /* Allow the items to wrap to the next line */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
 
 .tool-item {
@@ -400,17 +332,6 @@ h2 {
   transition: all 0.5s ease; /* Smooth transition for changes */
   opacity: 1;
 }
-
-
-/* Ensure all tab contents are hidden by default */
-.tab-contents {
-  display: none; /* Hide all tab contents */
-}
-
-.tab-contents.active-tab {
-  display: block; /* Show active tab content */
-}
-
 
 
 /* Services Section */
@@ -827,76 +748,71 @@ footer {
 
 
   #about {
-    padding: 0 5% 2rem;
-    height: auto;
-    min-height: 600px; /* Set a minimum height */
-  }  
+    padding: 3rem 3%;
+    height: 760px; /* Set a fixed height for mobile */
+    overflow: hidden; /* Hide any overflow content */
+  }
+  
+  .about_me {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    height: 100%; /* Ensure it fills the entire height */
+  }
+  
+  .about_me h1 {
+    font-size: 2.5rem; /* Reduce font size */
+    text-align: center; /* Center text */
+  }
+  
+  .about_me p {
+    font-size: 1rem;
+    text-align: center; /* Center the text */
+  }
+  
+  .tab-titles {
+    display: flex;
+    flex-direction: row;  /* Align the tab titles horizontally in a row */
+    justify-content: center;  /* Center the tab titles horizontally */
+    margin: 20px 0 40px;
+    position: relative;
+  }
+  
+  .tab-links {
+    margin-right: 20px; /* Add margin between each tab link */
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .tab-links:last-child {
+    margin-right: 0; /* Remove margin on the last tab link */
+  }
+  
+  .tool-row {
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+  }
+  
+  .tool-item {
+    flex: 1 1 20%; /* Each item takes up 20% of the width */
+    margin: 1rem 10px; /* Adjust margins for smaller screens */
+  }
+  
+  .tool-item img {
+    width: 50%; /* Adjust image size */
+  }
+  
+  /* Ensure the tab contents fit within the fixed height */
+  .tab-contents {
+    min-height: 500px; /* Adjust height for tab content */
+    max-height: 100%; /* Prevent overflowing content */
+    overflow-y: auto; /* Add scrolling if content overflows */
+  }
   
 
-  .row {
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center-align items */
-  }
-
-  .about-col-1 {
-    display: none;
-    height: 0;
-  }
-
-  .about-col-2 {
-    flex-basis: 100%; /* Each column takes full width */
-    text-align: center; /* Center-align text */
-    padding: 1rem 0; /* Add vertical padding */
-  }
-
-  .about-col-1 img {
-    /* max-width: 150px;
-    margin-bottom: 1rem; */
-    display: none;
-  }
-
-  .about_me .text h1 {
-    font-size: 1.5rem; /* Smaller heading for mobile */
-    line-height: 1.3; /* Adjust line height */
-  }
-
-  .about_me .text p {
-    font-size: 0.9rem; /* Reduce paragraph font size */
-    line-height: 1.5; /* Maintain readability */
-  }
-
-  .tab-titles {
-    flex-wrap: wrap; /* Wrap tab titles for smaller screens */
-    justify-content: center; /* Center-align tab titles */
-    margin-bottom: 2rem; /* Add spacing below tab titles */
-  }
-
-  .tab-links {
-    margin-right: 15px; /* Reduce spacing between tabs */
-    font-size: 0.9rem; /* Smaller font size for tabs */
-  }
-
-  .tool-row {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping for tool icons */
-    justify-content: center; /* Center-align tools */
-  }
-
-  .tool-item {
-    width: 45%; /* 2 items per row on mobile */
-  }
-
-  .tool-item img {
-    width: 100%;
-    height: auto;
-    margin: 20px;
-    border-radius: 10px;
-    position: relative;
-    transition: all 0.5s ease; /* Smooth transition for changes */
-    opacity: 1;
-  }
-
-
+  /* Services */
   .services-grid {
     grid-template-columns: 1fr; /* Change to one column for mobile view */
     gap: 20px; /* Adjust gap for mobile */
