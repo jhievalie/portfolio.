@@ -71,33 +71,51 @@ function opentab(tabname) {
     }
 }
 
+// Set height on document ready and on tab switch
+// function setHeight() {
+//     var col1Height = document.querySelector('.about-col-1').offsetHeight;
+//     var col2Height = document.querySelector('.about-col-2').offsetHeight;
+  
+//     // Set both columns to the maximum height of either
+//     var maxHeight = Math.max(col1Height, col2Height);
+//     document.querySelector('.about-col-1').style.height = maxHeight + 'px';
+//     document.querySelector('.about-col-2').style.height = maxHeight + 'px';
+//   }
+  
+//   // Call function on load
+//   window.onload = setHeight;
+  
+//   // Call function on tab switch
+//   document.querySelectorAll('.tab-links').forEach(tab => {
+//     tab.addEventListener('click', setHeight);
+//   });
 
 
 
 
-// New message sent to GSheet
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyyupltVOE2-LXyg_mQdPHm3uSeqwn4aTl9E3JRbJuFQwc9WjOiQyWTjgKcT0JjBq_5/exec';
-const form = document.forms['submit-to-google-sheet'];
-const msg = document.getElementById("msg");
+    // New message sent to GSheet
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxM1cR7HGRGZVMIfpu1u8ctbB6oMxWXj6TzoCRJMkcI_eX0lfUd_kHSeJ3kzQ5dJ2fZ/exec';
+    const form = document.forms['submit-to-google-sheet'];
+    const msg = document.getElementById("msg");
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json(); // Handle JSON response if needed
-        })
-        .then(data => {
-            msg.innerHTML = "Message sent successfully";
-            setTimeout(() => {
-                msg.innerHTML = "";
-            }, 1000);
-            form.reset();
-        })
-        .catch(error => {
-            msg.innerHTML = "Error sending message. Please try again.";
-            console.error('Error!', error.message);
-        });
-});
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json(); // Handle JSON response if needed
+            })
+            .then(data => {
+                msg.innerHTML = "Message sent successfully";
+                setTimeout(() => {
+                    msg.innerHTML = "";
+                }, 1000);
+                form.reset();
+            })
+            .catch(error => {
+                msg.innerHTML = "Error sending message. Please try again.";
+                console.error('Error!', error.message);
+            });
+    });
