@@ -3,7 +3,7 @@
 :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
-  --background-color: #f4f4f4;
+  --background-color: #ffffff;
   --text-color: #333;
   --light-text-color: #777;
 }
@@ -17,7 +17,7 @@
 html {
   scroll-behavior: smooth;
   /* Enable smooth scrolling */
-  scroll-padding-top: 115px;
+  scroll-padding-top: 10%;
   /* Offset the scroll by the height of your header */
 }
 
@@ -48,10 +48,11 @@ nav {
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-color);
-  /* Logo color */
+  color: var(--primary-color); /* Logo color */
   display: flex;
   align-items: center;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Indicate clickable area */
 }
 
 .logo i {
@@ -64,6 +65,12 @@ nav {
   color: var(--primary-color);
   margin-left: 1rem;
 }
+
+/* Optional hover effect for the logo */
+/* .logo:hover {
+  color: var(--secondary-color);
+} */
+
 
 .nav-links {
   display: flex;
@@ -99,36 +106,57 @@ nav {
 }
 
 main {
-  margin-top: 80px;
-  padding: 2rem 5%;
+  margin-top: 3%;
+  padding: 1rem 5%;
+  /* margin-bottom: 50px; */
 }
 
+section {
+  margin-top: 1%;
+  /* margin-bottom: 70px; */
+}
+
+
 /* Sections */
-.hero {
+#home {
+  background-color: white;
+}
+
+/*.hero {
   display: flex;
   justify-content: space-between;
-  /* Align text left and image right */
   align-items: center;
-  padding: 4rem 5%;
-  background-color: #ffffff !important;
-  background-image: url("/placeholder.svg?height=400&width=1200");
-  background-size: cover;
+  padding: 4rem 5%; */
+  /* background-color: #ffffff !important; */
+  /* background-color: var(--background-color);*/
+  /* background-image: url("/placeholder.svg?height=400&width=1200"); */
+  /*background-size: cover;
   background-position: center;
   color: var(--primary-color);
   position: relative;
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 10%;
   height: 760px;
+} */
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5% 4rem;
+  background-color: #ffffff; /* Ensure this color is set */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 760px; /* Adjust height as needed */
+  z-index: 0; /* Ensure this layer is visible */
 }
-
-
-/* Profile-hero */
 
 .hero .text {
   flex: 1;
   text-align: left;
-  /* Align text to the left */
   z-index: 1;
 }
 
@@ -136,6 +164,7 @@ main {
   font-size: 3rem;
   line-height: 1;
   margin-bottom: 2%;
+  color: var(--primary-color);
 }
 
 .hero .text h2 {
@@ -148,17 +177,6 @@ main {
   color: #333;
 }
 
-.hero .image {
-  flex: 1;
-  max-width: 50%;
-  height: 100%;
-  background-image: url("/your-image-url.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  z-index: -1;
-}
-
 .hero .text::before {
   content: "";
   position: absolute;
@@ -166,8 +184,26 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.1);
-  z-index: -1;
+  background-color: transparent; /* Ensure no overlay conflicts */
+  z-index: -1; /* Ensure it does not cover the main content */
+}
+
+.hero .image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.hero .image img {
+  border-radius: 50%;
+  /* Remove scaling to retain natural dimensions */
+  max-width: none;
+  max-height: none;
+  width: auto;
+  height: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
@@ -181,7 +217,6 @@ h2 {
 
 /* About */
 #about {
-  /* padding: 80px 0; */
   padding: 4rem 5%;
   color: #ababab;
   justify-content: space-between;
@@ -194,14 +229,14 @@ h2 {
   position: relative;
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 5%;
+  margin-top: 5%;
+  margin-bottom: 8%;
   height: 760px;
 }
 
 .about_me .text {
   flex: 1;
   text-align: left;
-  /* Align text to the left */
   z-index: 1;
 }
 
@@ -228,22 +263,29 @@ h2 {
 }
 
 .about-col-1 {
-  flex-basis: 40%; /* 35% of the container width */
+  flex-basis: 40%; /* 50% of the container width */
   display: flex;
   justify-content: center; /* Center the image horizontally */
   align-items: center; /* Center the image vertically */
+  min-height: 400px; /* Set a fixed minimum height for the column */
+  height: 400px; /* Fixed height for the column */
 }
 
 .about-col-1 img {
-  width: 100%; /* Scale image to fit column width */
-  max-width: 300px; /* Optional max width for the image */
+  width: auto; /* Keep the image width automatic */
+  height: 100%; /* Ensure the image takes full height of the column */
   border-radius: 15px; /* Rounded corners */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+  margin-top: 20%;
+  margin-right: 5%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
 }
 
 .about-col-2 {
-  flex-basis: 60%; /* 60% of the container width */
+  flex-basis: 60%; /* 50% of the container width */
   padding-left: 2rem; /* Add spacing between the image and the text */
+  display: flex; /* Use flexbox for better alignment */
+  flex-direction: column; /* Stack items vertically */
+  height: 100%; /* Allow the second column to grow with content */
 }
 
 .sub-title {
@@ -254,12 +296,23 @@ h2 {
 .tab-titles {
   display: flex;
   margin: 20px 0 40px;
+  justify-content: center;
+  position: relative; /* Ensure positioning context for the pseudo-element */
+}
+
+.tab-titles::after {
+  content: "";
+  position: absolute;
+  bottom: -30px; /* Move the line down */
+  left: 0;
+  width: 100%;
+  border-bottom: 2px solid #ececec; /* Adjust the color and thickness as needed */
 }
 
 .tab-links {
   margin-right: 50px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
   position: relative;
   color: #333; /* Text color */
@@ -283,6 +336,7 @@ h2 {
 
 .tab-links.active-link {
   color: rgb(89, 171, 198); /* Active link color */
+  font-weight: 600;
 }
 
 .tab-links.active-link::after {
@@ -303,6 +357,8 @@ h2 {
 
 .tab-contents {
   display: none; /* Hide tabs by default */
+  /* Ensure a fixed height for tab content */
+  min-height: 300px; /* Adjust as needed */
 }
 
 .tab-contents.active-tab {
@@ -318,22 +374,33 @@ h2 {
 
 .tool-row {
   display: flex;
-  justify-content: left; /* Center the row of icons */
-  margin-bottom: 20px; /* Space between rows */
+  justify-content: center; /* Center the items horizontally */
+  margin-bottom: 7%;
+  position: relative;
+  height: 120px; /* Default height for first row */
+  flex-wrap: wrap; /* Allow the items to wrap to the next line */
 }
 
 .tool-item {
-  flex: 1; /* Make items flexible to fit in a row */
-  text-align: center; /* Center-align icons */
-  max-width: 100px; /* Optional: set a max width for the icons */
-  margin: 0 10px; /* Add some margin between icons */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px;
+  margin: 1rem 20px;
+  position: relative;
+  flex: 1 1;
 }
 
 .tool-item img {
-  width: 100%; /* Ensure images are responsive */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Optional: rounded corners for icons */
+  width: 70%;
+  height: auto;
+  margin: 0;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.5s ease; /* Smooth transition for changes */
+  opacity: 1;
 }
+
 
 /* Ensure all tab contents are hidden by default */
 .tab-contents {
@@ -346,53 +413,79 @@ h2 {
 
 
 
-/* Services */
+/* Services Section */
 .services_me {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4rem 5%;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center-align content vertically */
+  align-items: center; /* Center-align content horizontally */
+  padding: 2rem 5%;
+  /* margin-top: -10%; */
   margin-bottom: 5%;
   border-radius: 15px;
   background-color: #ffffff;
   position: relative;
   overflow: hidden;
-  height: 760px;
+  height: auto; /* Allow the height to adjust based on content */
 }
 
-.services_me .image {
-  flex: 1;
-  max-width: 50%;
-  height: 100%;
-  background-image: url("/your-image-url.jpg"); /* Replace with your image URL */
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-}
-
+/* Text content */
 .services_me .text {
   flex: 1;
-  padding-left: 2rem;
-  text-align: left;
+  text-align: center; /* Center the text */
+  padding: 2rem 0; /* Add padding to the top and bottom */
 }
 
-.services_me .text h1 {
-  font-size: 3rem;
+.services_me h2 {
+  font-size: 1rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
 }
 
-.services_me .text h2 {
-  font-size: 2rem;
+.services_me .text h1 {
+  font-size: 3rem;
+  margin-top: -3rem;
   margin-bottom: 1rem;
-  color: var(--text-color);  height: 760px;
+  color: var(--primary-color);
 }
 
 .services_me .text p {
   font-size: 1.2rem;
   color: var(--light-text-color);
   line-height: 1.8;
+}
+
+/* Grid Layout for Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create 2 columns */
+  gap: 40px; /* Space between items */
+  width: 100%;
+  max-width: 1200px; /* Optional, limits the width of the grid */
+  margin-top: 2rem; /* Adjust this value to decrease the space between title and grid */
+}
+
+.service-item {
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for movement and color change */
+}
+
+.service-item:hover {
+  cursor: pointer;
+  background-color: #7b8288; /* Darker shade on hover */
+  transform: translateY(-10px); /* Move up by 10px */
+}
+
+.service-item:hover h2{
+  color: #ffffff;
+}
+
+.service-item:hover p{
+  color: #ffffff;
 }
 
 /* Overlay Effect for Text Readability */
@@ -406,6 +499,8 @@ h2 {
   background-color: rgba(0, 0, 0, 0.05); /* Light overlay */
   z-index: -1;
 }
+
+
 
 
 
@@ -678,18 +773,39 @@ footer {
     top: -5px;
   }
 
+  html {
+    scroll-behavior: smooth;
+    /* Enable smooth scrolling */
+    scroll-padding-top: 11%;
+    /* Offset the scroll by the height of your header */
+  }
 
-
-  .hero,
-  .services_me {
-    flex-direction: column;
-    /* Stack content on smaller screens */
+  main {
+    margin-top: 2.5%;
+    padding: 2rem 5%;
+    margin-bottom: 0;
+  }
+  
+  section {
+    margin-top: 10%;
+    margin-bottom: 10px;
+  }
+  
+  #home {
+    padding: 2rem 0 2rem;
     height: auto;
   }
 
-  .hero .image {
-    max-width: 100%;
-    height: 300px;
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero .image img{
+    max-width: 80%;
+    height: 80%;
+    margin-top: 10%;
+    /* display: none; */
   }
 
   .hero .text {
@@ -711,10 +827,10 @@ footer {
 
 
   #about {
-    padding: 1.5rem 5% 5rem; /* Add padding to all sides, with extra at the bottom */
-    margin-bottom: 5%; /* Maintain the margin for spacing */
-    height: auto; /* Ensure the height adjusts based on content */
-  }
+    padding: 0 5% 2rem;
+    height: auto;
+    min-height: 600px; /* Set a minimum height */
+  }  
   
 
   .row {
@@ -722,7 +838,11 @@ footer {
     align-items: center; /* Center-align items */
   }
 
-  .about-col-1,
+  .about-col-1 {
+    display: none;
+    height: 0;
+  }
+
   .about-col-2 {
     flex-basis: 100%; /* Each column takes full width */
     text-align: center; /* Center-align text */
@@ -730,8 +850,9 @@ footer {
   }
 
   .about-col-1 img {
-    max-width: 150px; /* Make the image smaller for mobile */
-    margin-bottom: 1rem; /* Add space below the image */
+    /* max-width: 150px;
+    margin-bottom: 1rem; */
+    display: none;
   }
 
   .about_me .text h1 {
@@ -747,7 +868,7 @@ footer {
   .tab-titles {
     flex-wrap: wrap; /* Wrap tab titles for smaller screens */
     justify-content: center; /* Center-align tab titles */
-    margin-bottom: 1rem; /* Add spacing below tab titles */
+    margin-bottom: 2rem; /* Add spacing below tab titles */
   }
 
   .tab-links {
@@ -756,47 +877,65 @@ footer {
   }
 
   .tool-row {
+    display: flex;
     flex-wrap: wrap; /* Allow wrapping for tool icons */
     justify-content: center; /* Center-align tools */
   }
 
   .tool-item {
-    max-width: 60px; /* Make tool icons smaller for mobile */
-    margin: 5px; /* Reduce spacing between tools */
+    width: 45%; /* 2 items per row on mobile */
+  }
+
+  .tool-item img {
+    width: 100%;
+    height: auto;
+    margin: 20px;
+    border-radius: 10px;
+    position: relative;
+    transition: all 0.5s ease; /* Smooth transition for changes */
+    opacity: 1;
   }
 
 
-  .services_me,
+  .services-grid {
+    grid-template-columns: 1fr; /* Change to one column for mobile view */
+    gap: 20px; /* Adjust gap for mobile */
+  }
+
+  .services_me h1 {
+    font-size: 2.5rem; /* Adjust title font size for mobile */
+  }
+
+  .services_me .text p {
+    font-size: 1rem; /* Adjust text size for mobile */
+  }
+
   .projects_me {
+    margin-top: 10%;
     flex-direction: column; /* Stack content vertically */
     height: auto; /* Allow height to adjust based on content */
     padding: 2rem 5%; /* Adjust padding for smaller screens */
   }
 
-  .services_me .image,
   .projects_me .image {
     max-width: 100%; /* Make images responsive */
     height: 250px; /* Set a specific height for images */
     margin-bottom: 2rem; /* Add space below images */
   }
 
-  .services_me .text,
   .projects_me .text {
     padding-left: 0; /* Remove left padding */
     text-align: center; /* Center text on smaller screens */
   }
 
-  .services_me .text h1,
   .projects_me .text h1 {
     font-size: 2rem; /* Reduce heading size */
   }
 
-  .services_me .text h2,
   .projects_me .text h2 {
     font-size: 1.5rem; /* Reduce subheading size */
   }
 
-  .services_me .text p,
   .projects_me .text p {
     font-size: 1rem; /* Reduce paragraph text size */
   }
