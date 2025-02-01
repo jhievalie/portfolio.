@@ -48,11 +48,14 @@ nav {
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-color); /* Logo color */
+  color: var(--primary-color);
+  /* Logo color */
   display: flex;
   align-items: center;
-  text-decoration: none; /* Remove underline */
-  cursor: pointer; /* Indicate clickable area */
+  text-decoration: none;
+  /* Remove underline */
+  cursor: pointer;
+  /* Indicate clickable area */
 }
 
 .logo i {
@@ -127,10 +130,10 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: 4rem 5%; */
-  /* background-color: #ffffff !important; */
-  /* background-color: var(--background-color);*/
-  /* background-image: url("/placeholder.svg?height=400&width=1200"); */
-  /*background-size: cover;
+/* background-color: #ffffff !important; */
+/* background-color: var(--background-color);*/
+/* background-image: url("/placeholder.svg?height=400&width=1200"); */
+/*background-size: cover;
   background-position: center;
   color: var(--primary-color);
   position: relative;
@@ -144,14 +147,17 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: 0 5% 4rem;
-  background-color: #ffffff; /* Ensure this color is set */
+  background-color: #ffffff;
+  /* Ensure this color is set */
   background-size: cover;
   background-position: center;
   position: relative;
   border-radius: 15px;
   overflow: hidden;
-  height: 760px; /* Adjust height as needed */
-  z-index: 0; /* Ensure this layer is visible */
+  height: 760px;
+  /* Adjust height as needed */
+  z-index: 0;
+  /* Ensure this layer is visible */
 }
 
 .hero .text {
@@ -184,8 +190,10 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: transparent; /* Ensure no overlay conflicts */
-  z-index: -1; /* Ensure it does not cover the main content */
+  background-color: transparent;
+  /* Ensure no overlay conflicts */
+  z-index: -1;
+  /* Ensure it does not cover the main content */
 }
 
 .hero .image {
@@ -217,38 +225,45 @@ h2 {
 /* About */
 #about {
   padding: 4rem 5%;
-  color: #ababab;
   background-color: #ffffff !important;
   background-image: url("/placeholder.svg?height=400&width=1200");
   background-size: cover;
   background-position: center;
-  color: var(--primary-color);
   position: relative;
   border-radius: 15px;
   overflow: hidden;
   margin-top: 5%;
   margin-bottom: 8%;
-  height: 760px; /* Set fixed height */
 }
 
+/* Flexbox for About Me Section */
 .about_me {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
-  height: 100%; /* Ensure the content fills the section height */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  height: 760px;
+  padding-left: 0;
+  margin-top: 5%;
+  padding-bottom: 10px;
+}
+
+
+/* Left Side: About Me Content */
+.about_me>div {
+  flex: 1;
+  padding-right: 5rem;
 }
 
 .about_me h1 {
   font-size: 3rem;
   line-height: 1;
   margin-bottom: 2%;
+  color: var(--primary-color);
 }
 
-.about_me h2 {
-  font-size: 2rem;
-  color: #fff;
+.about_me span {
+  line-height: 1;
+  margin-bottom: 2%;
+  color: var(--primary-color);
 }
 
 .about_me p {
@@ -256,29 +271,30 @@ h2 {
   color: #333;
 }
 
-.about_me span {
-  color: var(--primary-color);
-  font-weight: 600;
+.about_me_tab p {
+  text-align: justify;
 }
 
+
+.tab-container {
+  flex: 1;
+  max-width: 50%;
+}
+
+/* Tab Titles and Content */
 .tab-titles {
   display: flex;
   margin: 20px 0 40px;
+  text-align: center;
+  align-items: center;
   justify-content: center;
-  position: relative;
-}
-
-.tab-titles::after {
-  content: "";
-  position: absolute;
-  bottom: -30px; /* Move the line down */
-  left: 0;
   width: 100%;
-  border-bottom: 2px solid #ececec; /* Adjust the color and thickness as needed */
+  padding: 0;
 }
 
 .tab-links {
-  margin-right: 50px;
+  margin: 0 30px;
+  /* Add horizontal spacing between tab links */
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
@@ -286,31 +302,32 @@ h2 {
   transition: color 0.3s ease;
 }
 
-.tab-links:hover {
-  color: rgb(89, 171, 198);
-}
-
 .tab-links.active-link {
-  color: rgb(89, 171, 198);
-  font-weight: 600;
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .tab-contents {
   display: none;
-  min-height: 300px;
   margin-top: 5%;
+  margin-left: 10%;
+  /* text-align: justify; */
 }
 
 .tab-contents.active-tab {
   display: block;
 }
 
+/* Tool Row Styling */
 .tool-row {
   display: flex;
-  justify-content: center; /* Center the items horizontally */
+  justify-content: center;
+  /* Center the items horizontally */
   margin-bottom: 7%;
   position: relative;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  flex-wrap: wrap;
+  /* Allow items to wrap to the next line */
+  margin-left: -10%;
 }
 
 .tool-item {
@@ -329,32 +346,40 @@ h2 {
   margin: 0;
   border-radius: 10px;
   position: relative;
-  transition: all 0.5s ease; /* Smooth transition for changes */
+  transition: all 0.5s ease;
+  /* Smooth transition for changes */
   opacity: 1;
 }
+
 
 
 /* Services Section */
 .services_me {
   display: flex;
-  flex-direction: column; /* Stack content vertically */
-  justify-content: center; /* Center-align content vertically */
-  align-items: center; /* Center-align content horizontally */
+  flex-direction: column;
+  /* Stack content vertically */
+  justify-content: center;
+  /* Center-align content vertically */
+  align-items: center;
+  /* Center-align content horizontally */
   padding: 2rem 5%;
-  /* margin-top: -10%; */
+  /* margin-top: -20%; */
   margin-bottom: 5%;
   border-radius: 15px;
   background-color: #ffffff;
   position: relative;
   overflow: hidden;
-  height: auto; /* Allow the height to adjust based on content */
+  height: auto;
+  /* Allow the height to adjust based on content */
 }
 
 /* Text content */
 .services_me .text {
   flex: 1;
-  text-align: center; /* Center the text */
-  padding: 2rem 0; /* Add padding to the top and bottom */
+  text-align: center;
+  /* Center the text */
+  padding: 2rem 0;
+  /* Add padding to the top and bottom */
 }
 
 .services_me h2 {
@@ -379,11 +404,11 @@ h2 {
 /* Grid Layout for Services */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Create 2 columns */
-  gap: 40px; /* Space between items */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
   width: 100%;
-  max-width: 1200px; /* Optional, limits the width of the grid */
-  margin-top: 2rem; /* Adjust this value to decrease the space between title and grid */
+  max-width: 800px;
+  margin-top: 2rem;
 }
 
 .service-item {
@@ -392,20 +417,23 @@ h2 {
   text-align: center;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for movement and color change */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  /* Smooth transition for movement and color change */
 }
 
 .service-item:hover {
   cursor: pointer;
-  background-color: #7b8288; /* Darker shade on hover */
-  transform: translateY(-10px); /* Move up by 10px */
+  background-color: #7b8288;
+  /* Darker shade on hover */
+  transform: translateY(-10px);
+  /* Move up by 10px */
 }
 
-.service-item:hover h2{
+.service-item:hover h2 {
   color: #ffffff;
 }
 
-.service-item:hover p{
+.service-item:hover p {
   color: #ffffff;
 }
 
@@ -417,7 +445,8 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.05); /* Light overlay */
+  background-color: rgba(0, 0, 0, 0.05);
+  /* Light overlay */
   z-index: -1;
 }
 
@@ -444,7 +473,8 @@ h2 {
   flex: 1;
   max-width: 50%;
   height: 100%;
-  background-image: url("/your-image-url.jpg"); /* Replace with your image URL */
+  background-image: url("/your-image-url.jpg");
+  /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   border-radius: 15px;
@@ -482,13 +512,15 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.05); /* Light overlay */
+  background-color: rgba(0, 0, 0, 0.05);
+  /* Light overlay */
   z-index: -1;
 }
 
 /* Optional additional styling for better visual separation */
 .projects_me .image {
-  margin-right: 2rem; /* Optional: Add space between the image and text */
+  margin-right: 2rem;
+  /* Optional: Add space between the image and text */
 }
 
 
@@ -609,19 +641,73 @@ footer {
 
 
 @media screen and (max-width: 1440px) {
+  .hero {
+    height: 600px;
+    /* Adjust height for smaller desktops */
+  }
 
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns for smaller desktop */
+    gap: 30px;
+    /* Adjusted spacing */
+  }
+
+  footer {
+    padding: 3rem 5%;
+    /* Adjust padding */
+  }
 }
 
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1366px) {}
 
+@media screen and (max-width: 1100px) {
+  /* header nav {
+    flex-direction: column;
+  } */
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    /* Allow auto height for content fit */
+  }
+
+  .hero .image {
+    margin: 1rem 0;
+    /* Add spacing between image and text */
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    /* Single column layout */
+    gap: 20px;
+    /* Reduced gap */
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    /* Stack content */
+  }
 }
 
 @media screen and (max-width: 1100px) {
+
+  .hero .image img {
+    max-width: 60%;
+    height: 60%;
+    margin-top: 10%;
+    /* display: none; */
+  }
+
   #about {
-    padding: 1.5rem 5% 5rem; /* Add padding to all sides, with extra at the bottom */
-    margin-bottom: 5%; /* Maintain the margin for spacing */
-    height: auto; /* Ensure the height adjusts based on content */
+    padding: 1.5rem 5% 5rem;
+    /* Add padding to all sides, with extra at the bottom */
+    margin-bottom: 5%;
+    /* Maintain the margin for spacing */
+    height: auto;
+    /* Ensure the height adjusts based on content */
   }
 }
 
@@ -694,10 +780,11 @@ footer {
     top: -5px;
   }
 
+
   html {
     scroll-behavior: smooth;
     /* Enable smooth scrolling */
-    scroll-padding-top: 11%;
+    scroll-padding-top: 14%;
     /* Offset the scroll by the height of your header */
   }
 
@@ -706,12 +793,13 @@ footer {
     padding: 2rem 5%;
     margin-bottom: 0;
   }
-  
+
   section {
-    margin-top: 10%;
+    margin-top: 14%;
     margin-bottom: 10px;
   }
-  
+
+
   #home {
     padding: 2rem 0 2rem;
     height: auto;
@@ -722,139 +810,187 @@ footer {
     height: auto;
   }
 
-  .hero .image img{
+  .hero .image img {
     max-width: 80%;
     height: 80%;
     margin-top: 10%;
-    margin-bottom: 10%;
     /* display: none; */
   }
 
   .hero .text {
-    padding-left: 0; /* Remove left padding */
-    text-align: center; /* Center text on smaller screens */
+    padding-left: 0;
+    /* Remove left padding */
+    text-align: center;
+    /* Center text on smaller screens */
   }
 
   .hero .text h1 {
-    font-size: 2rem; /* Reduce heading size */
+    font-size: 2rem;
+    /* Reduce heading size */
   }
 
   .hero .text h2 {
-    font-size: 1.5rem; /* Reduce subheading size */
+    font-size: 1.5rem;
+    /* Reduce subheading size */
   }
 
   .hero .text p {
-    font-size: 1rem; /* Reduce paragraph text size */
-  }
-
-
-  #about {
-    padding: 3rem 3%;
-    height: 760px; /* Set a fixed height for mobile */
-    overflow: hidden; /* Hide any overflow content */
-  }
-  
-  .about_me {
-    flex-direction: column;
-    align-items: center;
-    max-width: 100%;
-    height: 100%; /* Ensure it fills the entire height */
-  }
-  
-  .about_me h1 {
-    font-size: 2.5rem; /* Reduce font size */
-    text-align: center; /* Center text */
-  }
-  
-  .about_me p {
     font-size: 1rem;
-    text-align: center; /* Center the text */
+    /* Reduce paragraph text size */
   }
-  
-  .tab-titles {
-    display: flex;
-    flex-direction: row;  /* Align the tab titles horizontally in a row */
-    justify-content: center;  /* Center the tab titles horizontally */
-    margin: 20px 0 40px;
-    position: relative;
-  }
-  
-  .tab-links {
-    margin-right: 20px; /* Add margin between each tab link */
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s ease;
-  }
-  
-  .tab-links:last-child {
-    margin-right: 0; /* Remove margin on the last tab link */
-  }
-  
-  .tool-row {
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-  }
-  
-  .tool-item {
-    flex: 1 1 20%; /* Each item takes up 20% of the width */
-    margin: 1rem 10px; /* Adjust margins for smaller screens */
-  }
-  
-  .tool-item img {
-    width: 50%; /* Adjust image size */
-  }
-  
-  /* Ensure the tab contents fit within the fixed height */
-  .tab-contents {
-    min-height: 500px; /* Adjust height for tab content */
-    max-height: 100%; /* Prevent overflowing content */
-    overflow-y: auto; /* Add scrolling if content overflows */
-  }
-  
+
+
+  /* Check parent elements */
+  /* Check parent elements */
+/* Check parent elements */
+#about {
+  position: relative;
+  overflow: visible;
+  z-index: 5;
+
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  height: auto !important;
+}
+
+.about_me {
+  position: block !important;
+  z-index: 5;
+  flex-direction: column;
+  margin-top: -10%;
+  height: auto !important;
+}
+
+.about_me h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about_me p {
+  font-size: 16px;
+}
+
+.about_me > div {
+  padding-right: 0;
+  padding-bottom: 1rem;
+}
+
+.tab-container {
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 15;
+  background-color: white;
+  height: auto !important;
+  padding: 0;
+}
+
+.tool-item {
+  flex: 1 50%;
+}
+
+.tool-item img {
+  margin-left: 25px;
+}
+
+.tab-links {
+  font-size: 16px;
+}
+
+.tab-contents {
+  display: none !important;
+  position: relative !important;
+  z-index: 9999 !important; /* Highest possible */
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-height: 100vh !important; /* Full screen height */
+  background: white !important;
+  padding: 1rem; /* Ensure padding does not limit the height */
+  box-sizing: border-box; /* Ensure content fits within the element */
+  overflow-y: auto; /* Allow content to scroll if needed */
+  height: auto !important;
+  text-align: center;
+  margin: 0;
+}
+
+.tab-contents.active-tab {
+  display: block !important;
+  position: relative;
+  height: auto !important;
+  z-index: 10;
+  min-height: 100vh !important; /* Ensure the content takes full height */
+  /* padding: 1rem; */
+  box-sizing: border-box; /* Prevent content from overflowing */
+  overflow-y: auto; /* Allow scrolling if content exceeds the screen */
+}
+
+
+
 
   /* Services */
-  .services-grid {
-    grid-template-columns: 1fr; /* Change to one column for mobile view */
-    gap: 20px; /* Adjust gap for mobile */
+  .services_me .text h1 {
+    margin-top: -20%;
+    font-size: 2.5rem;
+    /* Adjust title font size for mobile */
   }
 
-  .services_me h1 {
-    font-size: 2.5rem; /* Adjust title font size for mobile */
+  .services_me .text h1 {
+    font-size: 2rem;
   }
 
   .services_me .text p {
-    font-size: 1rem; /* Adjust text size for mobile */
+    font-size: 1rem;
+    /* Adjust text size for mobile */
   }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    /* Change to one column for mobile view */
+    gap: 20px;
+    /* Adjust gap for mobile */
+  }
+
 
   .projects_me {
     margin-top: 10%;
-    flex-direction: column; /* Stack content vertically */
-    height: auto; /* Allow height to adjust based on content */
-    padding: 2rem 5%; /* Adjust padding for smaller screens */
+    flex-direction: column;
+    /* Stack content vertically */
+    height: auto;
+    /* Allow height to adjust based on content */
+    padding: 2rem 5%;
+    /* Adjust padding for smaller screens */
   }
 
   .projects_me .image {
-    max-width: 100%; /* Make images responsive */
-    height: 250px; /* Set a specific height for images */
-    margin-bottom: 2rem; /* Add space below images */
+    max-width: 100%;
+    /* Make images responsive */
+    height: 250px;
+    /* Set a specific height for images */
+    margin-bottom: 2rem;
+    /* Add space below images */
   }
 
   .projects_me .text {
-    padding-left: 0; /* Remove left padding */
-    text-align: center; /* Center text on smaller screens */
+    padding-left: 0;
+    /* Remove left padding */
+    text-align: center;
+    /* Center text on smaller screens */
   }
 
   .projects_me .text h1 {
-    font-size: 2rem; /* Reduce heading size */
+    font-size: 2rem;
+    /* Reduce heading size */
   }
 
   .projects_me .text h2 {
-    font-size: 1.5rem; /* Reduce subheading size */
+    font-size: 1.5rem;
+    /* Reduce subheading size */
   }
 
   .projects_me .text p {
-    font-size: 1rem; /* Reduce paragraph text size */
+    font-size: 1rem;
+    /* Reduce paragraph text size */
   }
 
 
@@ -898,13 +1034,36 @@ footer {
   }
 }
 
-/* About - Animations */ 
+@media screen and (max-width: 480px) {
+  #about {
+    padding: 3rem 3%;
+    height: 760px;
+    /* Set a fixed height for mobile */
+    overflow: hidden;
+    /* Hide any overflow content */
+  }
+}
+
+/* About - Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
