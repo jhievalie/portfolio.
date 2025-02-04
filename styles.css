@@ -3,8 +3,8 @@
 :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
-  --background-color: #ffffff;
-  --text-color: #333;
+  --background-color: #373747;
+  --text-color: #ffffff;
   --light-text-color: #777;
 }
 
@@ -16,9 +16,7 @@
 
 html {
   scroll-behavior: smooth;
-  /* Enable smooth scrolling */
   scroll-padding-top: 10%;
-  /* Offset the scroll by the height of your header */
 }
 
 body {
@@ -29,7 +27,7 @@ body {
 }
 
 header {
-  background-color: #fff;
+  background-color: #373747;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
@@ -43,19 +41,17 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
+  /* margin-right: 100px; */
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary-color);
-  /* Logo color */
   display: flex;
   align-items: center;
   text-decoration: none;
-  /* Remove underline */
   cursor: pointer;
-  /* Indicate clickable area */
 }
 
 .logo i {
@@ -69,7 +65,6 @@ nav {
   margin-left: 1rem;
 }
 
-/* Optional hover effect for the logo */
 /* .logo:hover {
   color: var(--secondary-color);
 } */
@@ -85,13 +80,36 @@ nav {
 }
 
 .nav-links li a {
+  position: relative;
   text-decoration: none;
-  color: var(--text-color);
+  /* color: var(--text-color); */
+  color: #000000;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #00aced;
+  transform: translateX(-50%);
+  transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+}
+
 .nav-links li a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+  left: 50%;
+}
+
+.nav-links li a.active {
   color: var(--primary-color);
 }
 
@@ -103,6 +121,7 @@ nav {
 .burger div {
   width: 25px;
   height: 3px;
+  color: #000000;
   background-color: var(--text-color);
   margin: 5px;
   transition: all 0.3s ease;
@@ -111,53 +130,32 @@ nav {
 main {
   margin-top: 3%;
   padding: 1rem 5%;
-  /* margin-bottom: 50px; */
 }
 
 section {
   margin-top: 1%;
-  /* margin-bottom: 70px; */
 }
-
 
 /* Sections */
 #home {
-  background-color: white;
-}
-
-/*.hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4rem 5%; */
-/* background-color: #ffffff !important; */
-/* background-color: var(--background-color);*/
-/* background-image: url("/placeholder.svg?height=400&width=1200"); */
-/*background-size: cover;
-  background-position: center;
-  color: var(--primary-color);
-  position: relative;
+  /* background-color: white; */
   border-radius: 15px;
-  overflow: hidden;
-  height: 760px;
-} */
+}
 
 .hero {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 5% 4rem;
-  background-color: #ffffff;
-  /* Ensure this color is set */
+  background-color: var(--background-color);
   background-size: cover;
   background-position: center;
   position: relative;
   border-radius: 15px;
   overflow: hidden;
   height: 760px;
-  /* Adjust height as needed */
+  margin-bottom: 8%;
   z-index: 0;
-  /* Ensure this layer is visible */
 }
 
 .hero .text {
@@ -168,7 +166,7 @@ section {
 
 .hero .text h1 {
   font-size: 3rem;
-  line-height: 1;
+  line-height: 1.2;
   margin-bottom: 2%;
   color: var(--primary-color);
 }
@@ -179,21 +177,27 @@ section {
 }
 
 .hero .text p {
-  font-size: 1.2rem;
-  color: #333;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #ffffff;
 }
 
-.hero .text::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: transparent;
-  /* Ensure no overlay conflicts */
-  z-index: -1;
-  /* Ensure it does not cover the main content */
+.hero .text .btn-download {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: var(--primary-color);
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero .text .btn-download:hover {
+  background-color: var(--primary-color);
+  filter: brightness(0.8); /* Darken by 20% */
 }
 
 .hero .image {
@@ -206,13 +210,13 @@ section {
 
 .hero .image img {
   border-radius: 50%;
-  /* Remove scaling to retain natural dimensions */
   max-width: none;
   max-height: none;
   width: auto;
   height: auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
 
 h2 {
   text-align: center;
@@ -224,15 +228,15 @@ h2 {
 
 /* About */
 #about {
-  padding: 4rem 5%;
-  background-color: #ffffff !important;
+  /* padding: 5rem 10%; */
+  background-color: var(--background-color) !important;
   background-image: url("/placeholder.svg?height=400&width=1200");
   background-size: cover;
   background-position: center;
   position: relative;
   border-radius: 15px;
   overflow: hidden;
-  margin-top: 5%;
+  /* margin-top: 5%; */
   margin-bottom: 8%;
 }
 
@@ -241,16 +245,17 @@ h2 {
   display: flex;
   flex-direction: row;
   height: 760px;
-  padding-left: 0;
-  margin-top: 5%;
-  padding-bottom: 10px;
+  padding: 4rem 100px;
+  /* margin-top: 5%; */
 }
 
 
 /* Left Side: About Me Content */
 .about_me>div {
   flex: 1;
-  padding-right: 5rem;
+  padding: 2rem;
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px; */
 }
 
 .about_me h1 {
@@ -268,7 +273,7 @@ h2 {
 
 .about_me p {
   font-size: 1.2rem;
-  color: #333;
+  color: #ffffff;
 }
 
 .about_me_tab p {
@@ -294,7 +299,6 @@ h2 {
 
 .tab-links {
   margin: 0 30px;
-  /* Add horizontal spacing between tab links */
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
@@ -311,7 +315,6 @@ h2 {
   display: none;
   margin-top: 5%;
   margin-left: 10%;
-  /* text-align: justify; */
 }
 
 .tab-contents.active-tab {
@@ -322,11 +325,9 @@ h2 {
 .tool-row {
   display: flex;
   justify-content: center;
-  /* Center the items horizontally */
   margin-bottom: 7%;
   position: relative;
   flex-wrap: wrap;
-  /* Allow items to wrap to the next line */
   margin-left: -10%;
 }
 
@@ -347,7 +348,6 @@ h2 {
   border-radius: 10px;
   position: relative;
   transition: all 0.5s ease;
-  /* Smooth transition for changes */
   opacity: 1;
 }
 
@@ -357,29 +357,23 @@ h2 {
 .services_me {
   display: flex;
   flex-direction: column;
-  /* Stack content vertically */
   justify-content: center;
-  /* Center-align content vertically */
   align-items: center;
-  /* Center-align content horizontally */
-  padding: 2rem 5%;
+  padding: 4.7rem 5%;
   /* margin-top: -20%; */
-  margin-bottom: 5%;
+  margin-bottom: 8%;
   border-radius: 15px;
-  background-color: #ffffff;
+  background-color: var(--background-color);
   position: relative;
   overflow: hidden;
   height: auto;
-  /* Allow the height to adjust based on content */
 }
 
 /* Text content */
 .services_me .text {
   flex: 1;
   text-align: center;
-  /* Center the text */
   padding: 2rem 0;
-  /* Add padding to the top and bottom */
 }
 
 .services_me h2 {
@@ -391,13 +385,13 @@ h2 {
 .services_me .text h1 {
   font-size: 3rem;
   margin-top: -3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: var(--primary-color);
 }
 
 .services_me .text p {
   font-size: 1.2rem;
-  color: var(--light-text-color);
+  color: var(--text-color);
   line-height: 1.8;
 }
 
@@ -407,30 +401,28 @@ h2 {
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   margin-top: 2rem;
 }
 
 .service-item {
-  background-color: #f9f9f9;
+  background-color: var(--background-color);
   padding: 20px;
   text-align: center;
   border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, background-color 0.3s ease;
-  /* Smooth transition for movement and color change */
+
 }
 
 .service-item:hover {
   cursor: pointer;
-  background-color: #7b8288;
-  /* Darker shade on hover */
+  background-color: #3f454b;
   transform: translateY(-10px);
-  /* Move up by 10px */
 }
 
 .service-item:hover h2 {
-  color: #ffffff;
+  color: var(--primary-color);
 }
 
 .service-item:hover p {
@@ -446,7 +438,6 @@ h2 {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.05);
-  /* Light overlay */
   z-index: -1;
 }
 
@@ -474,7 +465,6 @@ h2 {
   max-width: 50%;
   height: 100%;
   background-image: url("/your-image-url.jpg");
-  /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   border-radius: 15px;
@@ -513,14 +503,11 @@ h2 {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.05);
-  /* Light overlay */
   z-index: -1;
 }
 
-/* Optional additional styling for better visual separation */
 .projects_me .image {
   margin-right: 2rem;
-  /* Optional: Add space between the image and text */
 }
 
 
@@ -531,15 +518,16 @@ footer {
   color: #fff;
   padding: 5rem 5% 1rem;
   font-size: 1rem;
+  margin-bottom: -2rem;
 }
 
 /* Footer Grid Layout */
 .footer-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* Two equal sections: Left and Right */
   gap: 2rem;
   align-items: start;
+  /* height: 680px; */
 }
 
 .footer-left,
@@ -643,19 +631,15 @@ footer {
 @media screen and (max-width: 1440px) {
   .hero {
     height: 600px;
-    /* Adjust height for smaller desktops */
   }
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-    /* Two columns for smaller desktop */
     gap: 30px;
-    /* Adjusted spacing */
   }
 
   footer {
     padding: 3rem 5%;
-    /* Adjust padding */
   }
 }
 
@@ -671,24 +655,19 @@ footer {
     flex-direction: column;
     text-align: center;
     height: auto;
-    /* Allow auto height for content fit */
   }
 
   .hero .image {
     margin: 1rem 0;
-    /* Add spacing between image and text */
   }
 
   .services-grid {
     grid-template-columns: 1fr;
-    /* Single column layout */
     gap: 20px;
-    /* Reduced gap */
   }
 
   .footer-content {
     grid-template-columns: 1fr;
-    /* Stack content */
   }
 }
 
@@ -698,16 +677,12 @@ footer {
     max-width: 60%;
     height: 60%;
     margin-top: 10%;
-    /* display: none; */
   }
 
   #about {
     padding: 1.5rem 5% 5rem;
-    /* Add padding to all sides, with extra at the bottom */
     margin-bottom: 5%;
-    /* Maintain the margin for spacing */
     height: auto;
-    /* Ensure the height adjusts based on content */
   }
 }
 
@@ -726,22 +701,30 @@ footer {
   .nav-active {
     display: block;
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: auto;
+    background-color: var(--background-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     padding: 1rem 0;
     text-align: center;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   .nav-links li {
     margin-left: 0;
-    margin-bottom: 1rem;
+    margin: 1.5rem 0;
     opacity: 0;
     transform: translateX(50px);
     animation: navLinkFade 0.05s forwards;
+  }
+
+  .nav-links li a {
+    color: #000000;
   }
 
   .nav-links li:nth-child(1) {
@@ -783,9 +766,7 @@ footer {
 
   html {
     scroll-behavior: smooth;
-    /* Enable smooth scrolling */
     scroll-padding-top: 14%;
-    /* Offset the scroll by the height of your header */
   }
 
   main {
@@ -814,35 +795,26 @@ footer {
     max-width: 80%;
     height: 80%;
     margin-top: 10%;
-    /* display: none; */
   }
 
   .hero .text {
     padding-left: 0;
-    /* Remove left padding */
     text-align: center;
-    /* Center text on smaller screens */
   }
 
   .hero .text h1 {
     font-size: 2rem;
-    /* Reduce heading size */
   }
 
   .hero .text h2 {
     font-size: 1.5rem;
-    /* Reduce subheading size */
   }
 
   .hero .text p {
     font-size: 1rem;
-    /* Reduce paragraph text size */
   }
 
 
-  /* Check parent elements */
-  /* Check parent elements */
-/* Check parent elements */
 #about {
   position: relative;
   overflow: visible;
@@ -860,6 +832,11 @@ footer {
   flex-direction: column;
   margin-top: -10%;
   height: auto !important;
+  padding: 4rem 40px;
+}
+
+.about_me>div {
+  height: auto;
 }
 
 .about_me h1 {
@@ -901,14 +878,14 @@ footer {
 .tab-contents {
   display: none !important;
   position: relative !important;
-  z-index: 9999 !important; /* Highest possible */
+  z-index: 9999 !important;
   opacity: 1 !important;
   visibility: visible !important;
-  min-height: 100vh !important; /* Full screen height */
+  min-height: 100vh !important;
   background: white !important;
-  padding: 1rem; /* Ensure padding does not limit the height */
-  box-sizing: border-box; /* Ensure content fits within the element */
-  overflow-y: auto; /* Allow content to scroll if needed */
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-y: auto;
   height: auto !important;
   text-align: center;
   margin: 0;
@@ -919,10 +896,10 @@ footer {
   position: relative;
   height: auto !important;
   z-index: 10;
-  min-height: 100vh !important; /* Ensure the content takes full height */
+  min-height: 100vh !important;
   /* padding: 1rem; */
-  box-sizing: border-box; /* Prevent content from overflowing */
-  overflow-y: auto; /* Allow scrolling if content exceeds the screen */
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 
@@ -932,7 +909,6 @@ footer {
   .services_me .text h1 {
     margin-top: -20%;
     font-size: 2.5rem;
-    /* Adjust title font size for mobile */
   }
 
   .services_me .text h1 {
@@ -941,62 +917,47 @@ footer {
 
   .services_me .text p {
     font-size: 1rem;
-    /* Adjust text size for mobile */
   }
 
   .services-grid {
     grid-template-columns: 1fr;
-    /* Change to one column for mobile view */
     gap: 20px;
-    /* Adjust gap for mobile */
   }
 
 
   .projects_me {
     margin-top: 10%;
     flex-direction: column;
-    /* Stack content vertically */
     height: auto;
-    /* Allow height to adjust based on content */
     padding: 2rem 5%;
-    /* Adjust padding for smaller screens */
   }
 
   .projects_me .image {
     max-width: 100%;
-    /* Make images responsive */
     height: 250px;
-    /* Set a specific height for images */
     margin-bottom: 2rem;
-    /* Add space below images */
   }
 
   .projects_me .text {
     padding-left: 0;
-    /* Remove left padding */
     text-align: center;
-    /* Center text on smaller screens */
   }
 
   .projects_me .text h1 {
     font-size: 2rem;
-    /* Reduce heading size */
   }
 
   .projects_me .text h2 {
     font-size: 1.5rem;
-    /* Reduce subheading size */
   }
 
   .projects_me .text p {
     font-size: 1rem;
-    /* Reduce paragraph text size */
   }
 
 
   .footer-content {
     grid-template-columns: 1fr;
-    /* Stack sections vertically */
     text-align: center;
   }
 
@@ -1008,12 +969,10 @@ footer {
   .footer-right form input,
   .footer-right form textarea {
     text-align: left;
-    /* Center text in inputs for smaller screens */
   }
 
   .footer-left h2 {
     text-align: center;
-    /* Center alignment for smaller screens */
   }
 
   .social-icons {
@@ -1038,9 +997,7 @@ footer {
   #about {
     padding: 3rem 3%;
     height: 760px;
-    /* Set a fixed height for mobile */
     overflow: hidden;
-    /* Hide any overflow content */
   }
 }
 
