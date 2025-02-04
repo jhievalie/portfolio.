@@ -119,6 +119,52 @@ function setActiveLink() {
     });
 }
 
+
+
+// Select all sections with class '.container' inside each 'section'
+const section = document.querySelectorAll('section .container');
+
+// Get the Home section and exempt it from the transition
+const homeSection = document.querySelector('#home'); // Assuming Home section has an ID of 'home'
+
+// Options for the IntersectionObserver
+const observerOptions = {
+    root: null,           // Default root (viewport)
+    threshold: 0.25,      // Trigger when 25% of the section is visible
+};
+
+// Create an IntersectionObserver
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        // Exempt the Home section and observe others
+        if (entry.isIntersecting && entry.target !== homeSection) {
+            // Apply a "pull-up" effect and increase opacity
+            entry.target.style.transition = "transform 1s, opacity 1s"; // Smooth transition for both transform and opacity
+            entry.target.style.opacity = "1"; // Full opacity
+            entry.target.style.transform = "translateY(0)"; // Pull the section up
+
+            // Disconnect the observer after the section has entered the viewport
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe each section except for the Home section
+sections.forEach(section => {
+    if (section !== homeSection) {
+        // Initially hide the sections and set their starting transform position
+        section.style.opacity = "0";
+        section.style.transform = "translateY(50px)"; // Start below the viewport
+        observer.observe(section);
+    }
+});
+
+
+
+
+
+
+
 // Listen to the scroll event to update the active link
 window.addEventListener('scroll', setActiveLink);
 
