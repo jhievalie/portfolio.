@@ -6,8 +6,8 @@ function mobileNav() {
 
     // Toggle nav on burger click
     burger.addEventListener('click', () => {
-        nav.classList.toggle('nav-active'); // Toggle visibility of nav links
-        burger.classList.toggle('toggle'); // Toggle the burger icon (rotate)
+        nav.classList.toggle('nav-active');
+        burger.classList.toggle('toggle');
 
         navLinks.forEach((link, index) => {
             if (link.style.animation) {
@@ -21,8 +21,8 @@ function mobileNav() {
     // Hide burger when a nav link is clicked
     navLinks.forEach(item => {
         item.addEventListener('click', () => {
-            nav.classList.remove('nav-active'); // Hide the nav
-            burger.classList.remove('toggle'); // Reset the burger icon
+            nav.classList.remove('nav-active');
+            burger.classList.remove('toggle');
         });
     });
 }
@@ -41,10 +41,89 @@ function smoothScroll() {
 
 // Initialize the page content and functions
 document.addEventListener('DOMContentLoaded', () => {
-    mobileNav(); // Initialize mobile navigation function
-    smoothScroll(); // Enable smooth scrolling for anchor links
+    mobileNav();
+    smoothScroll();
 });
 
+
+
+// Select the nav links
+// const navLinks = document.querySelectorAll('nav a'); 
+
+// Smooth scroll to .about_me section
+// navLinks.forEach(link => {
+//     link.addEventListener('click', (e) => {
+//         e.preventDefault();
+
+        // Scroll to the .about_me section
+//         document.querySelector(link.getAttribute('href')).scrollIntoView({
+//             behavior: 'smooth',
+//             block: 'start'
+//         });
+//     });
+// });
+
+
+// Select the nav links, sections, and footer
+const navLinks = document.querySelectorAll('.nav-links li a'); 
+const sections = document.querySelectorAll('section');
+const footer = document.querySelector('footer');
+
+// Smooth scroll to sections
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Scroll to the corresponding section
+        document.querySelector(link.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+});
+
+// Function to check which section is in the viewport
+function setActiveLink() {
+    let currentSection = '';
+    let footerTop = footer ? footer.offsetTop : null;
+    let footerHeight = footer ? footer.offsetHeight : 0;
+
+    // Loop through each section
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100; // Adjust offset to your liking
+        const sectionHeight = section.offsetHeight;
+        const sectionBottom = sectionTop + sectionHeight;
+
+        // Check if the section is fully in the viewport or more than halfway visible
+        if (window.scrollY >= sectionTop && window.scrollY <= sectionBottom) {
+            currentSection = section.getAttribute('id');
+        } else if (window.scrollY + window.innerHeight / 3.5 > sectionTop && window.scrollY + window.innerHeight / 2 < sectionBottom) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    // Check if footer is in the viewport (for Contact link)
+    if (footerTop && window.scrollY + window.innerHeight >= footerTop) {
+        currentSection = 'contact'; // Set active section to 'contact' when footer is visible
+    }
+
+    // Loop through the nav links and update the active class
+    navLinks.forEach(link => {
+        if (link.getAttribute('href').includes(currentSection)) {
+            link.classList.add('active'); // Active class for the link
+            link.style.color = 'var(--primary-color)'; // Set active color
+        } else {
+            link.classList.remove('active'); // Remove active class
+            link.style.color = 'var(--text-color)'; // Set inactive color (use your text color)
+        }
+    });
+}
+
+// Listen to the scroll event to update the active link
+window.addEventListener('scroll', setActiveLink);
+
+// Initial call to set the active link based on the initial scroll position
+setActiveLink();
 
 
 function opentab(event, tabname) {
@@ -70,21 +149,7 @@ function opentab(event, tabname) {
 
 
 
-// Select the nav links
-const navLinks = document.querySelectorAll('nav a'); // Assuming your nav links are <a> elements inside <nav>
 
-// Smooth scroll to .about_me section
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent default link behavior
-
-        // Scroll to the .about_me section
-        document.querySelector(link.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start' // Scroll to the top of the element
-        });
-    });
-});
 
 
 // New message sent to GSheet
@@ -99,7 +164,7 @@ form.addEventListener('submit', e => {
             if (!response.ok) {
                 throw new Error("Network response was not ok");
             }
-            return response.json(); // Handle JSON response if needed
+            return response.json();
         })
         .then(data => {
             msg.innerHTML = "Message sent successfully";
