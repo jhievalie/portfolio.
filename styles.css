@@ -797,7 +797,7 @@ footer {
 
 
 /* For smaller screen sizes (mobile) */
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+@media screen and (min-width: 769px) and (max-width: 1200px) {
   .nav-links {
     display: none;
   }
@@ -1125,7 +1125,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .nav-links {
     display: none;
   }
