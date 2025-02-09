@@ -91,8 +91,9 @@
                             clients.
                         </p>
                     </div>
+
                     <!-- Right Side: Tab Links and Content -->
-                    <div class="tab-container">
+                    <div class="tab-container about-hidden">
                         <div class="tab-titles">
                             <p class="tab-links active-link" onclick="opentab(event, 'skills')">Skills</p>
                             <p class="tab-links" onclick="opentab(event, 'experience')">Experience</p>
@@ -160,6 +161,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="toogle-about">
+                    <button id="toggle-aboutme" onclick="toggleAboutMe()">See more</button>
+                </div>
             </div>
         </section>
 
@@ -180,26 +184,29 @@
                             it's creating dashboards or analyzing trends, I ensure your data works for you.</p>
                     </div>
                     <!-- Service 2: Data Entry Specialist -->
-                    <div class="service-item">
+                    <div class="service-item service-hidden">
                         <h2>Data Entry Specialist</h2>
                         <p>I specialize in organizing and maintaining accurate data records. With attention to detail, I
                             handle data entry tasks using tools like Excel and Google Sheets, ensuring everything is
                             precise and ready for use. Your data is in good hands.</p>
                     </div>
                     <!-- Service 3: Scrape with Python -->
-                    <div class="service-item">
+                    <div class="service-item service-hidden">
                         <h2>Scrape with Python</h2>
                         <p>I use Python to collect data from websites for research or analysis. I ensure the data is
                             clean and formatted for your needs. Whether it's for business insights or project support, I
                             help gather the right information efficiently.</p>
                     </div>
                     <!-- Service 4: Research Analyst -->
-                    <div class="service-item">
+                    <div class="service-item service-hidden">
                         <h2>Research Analyst</h2>
                         <p>I use data tools to gather and analyze information, ensuring accuracy and relevance.
                             Whether for market research, trend analysis, or decision-making, I provide insights to
                             support your goals efficiently.</p>
                     </div>
+                </div>
+                <div class="toogle-service">
+                    <button id="toggle-services" onclick="toggleServices()">See more</button>
                 </div>
             </div>
         </section>
