@@ -163,8 +163,6 @@ sections.forEach(section => {
 
 
 
-
-
 // Listen to the scroll event to update the active link
 window.addEventListener('scroll', setActiveLink);
 
@@ -192,6 +190,66 @@ function opentab(event, tabname) {
         activeTab.classList.add('active-tab');
     }
 }
+
+
+function toggleAboutMe() {
+    const toggleButton = document.getElementById("toggle-aboutme");
+    const tabContainer = document.querySelector(".tab-container");
+    const aboutSection = document.getElementById("about");
+
+    // Check the current text of the button and toggle it
+    if (toggleButton.innerText === "See more") {
+        toggleButton.innerText = "See less";
+
+        // Make the tab container visible
+        tabContainer.classList.remove("about-hidden");
+    } else {
+        toggleButton.innerText = "See more";
+
+        // Hide the tab container
+        tabContainer.classList.add("about-hidden");
+
+        // Scroll to the top of the About section
+        aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+
+
+
+function toggleServices() {
+    const toggleButton = document.getElementById("toggle-services");
+    const serviceItems = document.querySelectorAll(".service-item");
+    const servicesSection = document.getElementById("services");
+
+    // Check the current text of the button and toggle it
+    if (toggleButton.innerText === "See more") {
+        toggleButton.innerText = "See less";
+        
+        // Make all service items visible, except the first one
+        serviceItems.forEach((item, index) => {
+            if (index > 0) {
+                item.classList.remove("service-hidden");
+            }
+        });
+    } else {
+        toggleButton.innerText = "See more";
+        
+        // Hide all service items, except the first one
+        serviceItems.forEach((item, index) => {
+            if (index > 0) {
+                item.classList.add("service-hidden");
+            }
+        });
+
+        // Scroll to the top of the Services section
+        servicesSection.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+
+
+
 
 
 
