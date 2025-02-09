@@ -355,6 +355,25 @@ h2 {
   width: 80%;
 }
 
+#toggle-aboutme {
+  display: none;
+  border: none;
+  width: auto;
+  padding: 1rem 2rem;
+  margin: 30px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  padding: 1rem 2rem;
+}
+
+#toggle-aboutme:hover {
+  background-color: #2980b9;
+}
+
 
 
 /* Services Section */
@@ -445,7 +464,29 @@ h2 {
   z-index: -1;
 }
 
+/* 
+.hidden {
+  display: block;
+} */
 
+#toggle-services {
+  display: none;
+  border: none;
+  width: auto;
+  padding: 1rem 2rem;
+  margin: 30px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  padding: 1rem 2rem;
+}
+
+#toggle-services:hover {
+  background-color: #2980b9; /* Slightly darker blue */
+}
 
 
 
@@ -892,14 +933,13 @@ footer {
     margin-bottom: 0;
   }
 
-  section {
-    margin-top: 14%;
-    margin-bottom: 10px;
-  }
+  /* section {
+    margin: 20% 0 20%;
+  } */
 
 
   #home {
-    padding: 2rem 0 2rem;
+    /* padding: 2rem 0 2rem; */
     height: auto;
   }
 
@@ -907,6 +947,8 @@ footer {
     flex-direction: column;
     height: auto;
     margin-left: 0;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+    padding: 10rem 0 20rem;
   }
 
   .hero .image img {
@@ -937,7 +979,7 @@ footer {
     position: relative;
     overflow: visible;
     z-index: 5;
-
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
@@ -948,9 +990,8 @@ footer {
     position: block !important;
     z-index: 5;
     flex-direction: column;
-    margin-top: -20%;
     height: auto !important;
-    padding: 4rem 5% 0;
+    padding: 0 5%;
   }
 
   .about_me>div {
@@ -979,13 +1020,13 @@ footer {
   }
 
   .tool-item {
-    flex: 1 50%;
+    flex: 1 1 50%;
   }
 
   .tool-item img {
-    margin-left: 25px;
-    margin-bottom: 20px;
-    width: 70%;
+    margin-left: 90px;
+    margin-bottom: 5px;
+    width: 50%;
   }
 
   .tab-titles {
@@ -1034,6 +1075,10 @@ footer {
 
 
   /* Services */
+  .services_me {
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+    padding: 10rem 0;
+  }
   .services_me .text h1 {
     margin-top: -20%;
     font-size: 2.5rem;
@@ -1047,10 +1092,11 @@ footer {
     font-size: 1rem;
   }
 
-  .services-grid {
+  /* .services-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
+  } */
+
 
 
   .projects_me {
@@ -1086,7 +1132,7 @@ footer {
 
   footer {
     margin: 0;
-    padding: 1rem;
+    padding: 1rem 10rem;
   }
 
   .footer-content {
@@ -1358,6 +1404,27 @@ footer {
     max-width: 100%;
   }
 
+  .about-hidden {
+    display: none;
+  }
+
+  .toogle-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  #toggle-aboutme {
+    display: flex;
+    width: auto;
+    padding: 1rem 2rem;
+  }
+  
+  #toggle-aboutme:hover {
+    background-color: #2980b9; /* Slightly darker blue */
+  }
+
 
 
 
@@ -1378,6 +1445,20 @@ footer {
   .services-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .service-hidden {
+    display: none;
+  }
+  
+  #toggle-services {
+    display: block;
+    width: auto;
+    padding: 1rem 2rem;
+  }
+  
+  #toggle-services:hover {
+    background-color: #2980b9; /* Slightly darker blue */
   }
 
 
@@ -1422,8 +1503,16 @@ footer {
     text-align: center;
   }
 
+  .footer-left p {
+    margin-bottom: 15px;
+  }
+  
   .footer-left {
-    margin-bottom: -2rem;
+    margin-bottom: -5rem;
+  }
+
+  .footer-right {
+    margin-bottom: -4rem;
   }
 
   .footer-right form input,
